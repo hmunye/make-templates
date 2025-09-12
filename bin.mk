@@ -15,10 +15,11 @@ BUILDDIR =
 ### Compiler to use. Default is GCC, but can be overridden (e.g., make CC=clang)
 ###
 ### (?=) conditional assignment (value is only assigned if not already set)
-CC ?= gcc
+# CC ?= gcc
+CC = gcc
 
 ### C standard to use for compilation
-CSTD = c99
+CSTD = c11
 
 ### Compiler flags
 ###
@@ -49,7 +50,8 @@ DFLAGS = -D_DEBUG -g2
 LDFLAGS =
 
 ### (+=) append value(s) to a variable
-CFLAGS += $(INCLUDES) $(LDFLAGS)
+# CFLAGS += $(INCLUDES) $(LDFLAGS)
+CFLAGS += $(INCLUDES)
 
 ### Iterate over SRCDIRS and use `wildcard` to list all .c files in each directory
 CFILES = $(foreach DIR,$(SRCDIRS),$(wildcard $(DIR)/*.c))
